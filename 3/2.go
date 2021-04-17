@@ -1,18 +1,28 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
 func main() {
-	var even_number int
-	var odd_number int
-	for i := 3; i < 10; i++ {
+	var start, end string
+	fmt.Scan(&start)
+	fmt.Scan(&end)
+	start_digit, _ := strconv.Atoi(start)
+	end_digit, _ := strconv.Atoi(end)
+
+	var evenNumber, oddNumber, total int
+	for i := start_digit; i < end_digit; i++ {
+		total += i
 		if i%2 == 0 {
 			fmt.Println(i)
-			even_number += i
+			evenNumber += i
 		} else {
-			odd_number += i
+			oddNumber += i
 		}
 	}
-	fmt.Println(even_number)
-	fmt.Println(odd_number)
+	fmt.Println("Общая сумма всех цифр", total)
+	fmt.Println("Сумма четных чисел", evenNumber)
+	fmt.Println("Сумма нечетных чисел", oddNumber)
 }
